@@ -7,3 +7,20 @@
 	include_once 'database.php';
 
 	$todo = new Database();
+
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method == 'GET') {
+    }
+
+    if ($method == 'PUT') {
+
+    }
+
+    if ($method == 'POST') {
+
+    }
+
+    if ($method == 'DELETE') {
+
+    }
