@@ -11,6 +11,8 @@
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method == 'GET') {
+        $data = $todo->get();
+        echo json_encode($data);
     }
 
     if ($method == 'PUT') {
