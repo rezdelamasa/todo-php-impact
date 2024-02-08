@@ -34,5 +34,14 @@ fetch(apiUrl)
 });
 
 const deleteTodo = (id) => {
-  console.log(id)
+  fetch(apiUrl + "/?id=" + id, {method: 'DELETE'})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network error');
+        }
+        location.reload();
+    })
+  .catch(error => {
+        console.error('Error:', error);
+  });
 }
