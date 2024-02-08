@@ -26,12 +26,14 @@ fetch(apiUrl)
     console.error('Error:', error);
   });
 
-  document.addEventListener("click", function(e){
-    const target = e.target.closest(".btn-delete");
 
-    if(target){
-        deleteTodo(target.dataset.id);
-    }
+// DELETE
+document.addEventListener("click", function(e){
+  const target = e.target.closest(".btn-delete");
+
+  if(target){
+    deleteTodo(target.dataset.id);
+  }
 });
 
 const deleteTodo = (id) => {
@@ -45,4 +47,19 @@ const deleteTodo = (id) => {
   .catch(error => {
         console.error('Error:', error);
   });
+}
+
+
+// PUT/UPDATE
+document.addEventListener("change", function(e){
+  const target = e.target.closest(".todo-checkbox");
+
+  if(target){
+      const status = target.checked ? 'Complete' : 'Incomplete';
+      toggleTodoStatus(target.dataset.id, status);
+  }
+});
+
+const toggleTodoStatus = (id, status) => {
+  console.log(id, status)
 }
