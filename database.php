@@ -23,7 +23,10 @@
 			return true;
 		}
 
-		public function delete() {
-
+		public function delete($id) {
+			$sql = 'DELETE FROM todos WHERE id = :id';
+			$stmt = $this->conn->prepare($sql);
+			$stmt->execute(['id' => $id]);
+			return true;
 		}
 	}
