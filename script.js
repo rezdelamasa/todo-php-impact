@@ -15,6 +15,7 @@ fetch(apiUrl)
     data.forEach(todo => {
         todoList.innerHTML += `
             <li class="todo">
+                <input class="todo-checkbox" type="checkbox" data-id="${todo.id}">
                 <p>${ todo.name }</p>
                 <button class='btn btn-delete' data-id='${todo.id}'>Delete</button>
             </li>
