@@ -16,6 +16,7 @@ fetch(apiUrl)
         todoList.innerHTML += `
             <li class="todo">
                 <p>${ todo.name }</p>
+                <button class='btn btn-delete' data-id='${todo.id}'>Delete</button>
             </li>
         `
     });
@@ -23,3 +24,15 @@ fetch(apiUrl)
   .catch(error => {
     console.error('Error:', error);
   });
+
+  document.addEventListener("click", function(e){
+    const target = e.target.closest(".btn-delete");
+
+    if(target){
+        deleteTodo(target.dataset.id);
+    }
+});
+
+const deleteTodo = (id) => {
+  console.log(id)
+}
