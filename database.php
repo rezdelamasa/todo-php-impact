@@ -9,8 +9,11 @@
 			return $rows;
 		}
 	
-		public function insert() {
-
+		public function insert($name) {
+			$sql = 'INSERT INTO todos (name) VALUES (:name)';
+			$statement = $this->conn->prepare($sql);
+			$statement->execute(['name' => $name]);
+			return true;
 		}
 
 		public function update() {
