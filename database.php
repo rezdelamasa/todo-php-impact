@@ -16,8 +16,11 @@
 			return true;
 		}
 
-		public function update() {
-
+		public function update(int $id, Object $data) {
+			$sql = "UPDATE `todos` SET `status`=:status WHERE `id`='$id'";
+			$statement = $this->conn->prepare($sql);
+			$statement->execute(['status' => $data->status]);
+			return true;
 		}
 
 		public function delete() {
