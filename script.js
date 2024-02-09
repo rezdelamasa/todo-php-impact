@@ -15,7 +15,7 @@ fetch(apiUrl)
     data.forEach(todo => {
         todoList.innerHTML += `
             <li class="todo">
-                <input class="todo-checkbox" type="checkbox" data-id="${todo.id}">
+                ${renderCheckbox(todo)}
                 <p>${ todo.name }</p>
                 <button class='btn btn-delete' data-id='${todo.id}'>Delete</button>
             </li>
@@ -25,6 +25,13 @@ fetch(apiUrl)
   .catch(error => {
     console.error('Error:', error);
   });
+
+// render dynamic checkbox
+const renderCheckbox = (todo) => {
+  return todo.status === "Incomplete" ?
+    `<input class="todo-checkbox" type="checkbox" data-id='${todo.id}'>` :
+    `<input class="todo-checkbox" type="checkbox" data-id='${todo.id}' checked>`
+}
 
 
 // DELETE
