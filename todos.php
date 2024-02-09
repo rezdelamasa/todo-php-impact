@@ -26,7 +26,9 @@
     }
 
     if ($method == 'POST') {
-
+        if($todo->insert($_POST['name'])) {
+            echo json_encode(["msg" => "Todo created!"]);
+        }
     }
 
     if ($method == 'DELETE') {
