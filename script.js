@@ -61,5 +61,14 @@ document.addEventListener("change", function(e){
 });
 
 const toggleTodoStatus = (id, status) => {
-  console.log(id, status)
+  fetch(apiUrl + "/?id=" + id, { method: 'PUT', body: JSON.stringify({ status: "Complete" }) })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network error');
+        }
+        return response.json();
+    })
+    .catch(error => {
+          console.error('Error:', error);
+    });
 }

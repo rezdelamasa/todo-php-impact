@@ -18,7 +18,11 @@
     }
 
     if ($method == 'PUT') {
+        $data = json_decode(file_get_contents("php://input"));
 
+        if($todo->update($id, $data)) {
+            echo json_encode(["msg" => "Todo updated!"]);
+        }
     }
 
     if ($method == 'POST') {
