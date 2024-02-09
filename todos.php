@@ -28,6 +28,8 @@
     if ($method == 'POST') {
         if($todo->insert($_POST['name'])) {
             echo json_encode(["msg" => "Todo created!"]);
+            // redirect back to index since action takes us away
+            header('Location: /todo-app-dvpadt');
         }
     }
 
